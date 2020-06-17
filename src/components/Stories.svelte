@@ -40,7 +40,7 @@
   <div class="Stories__Friends">
     {#each $friends as { username, name, picture }}
       <Profile src={picture.medium} size="32px" active={true}>
-        <h3>{username}</h3>
+        <h4>{username}</h4>
         <small>{`${name.first} ${name.last}`}</small>
       </Profile>
     {/each}
