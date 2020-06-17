@@ -13,6 +13,14 @@
     margin: 1.5em 0;
     width: 100%;
   }
+  
+  .Post:first-child {
+    margin-top: 0;
+  }
+  
+  .Post:last-child {
+    margin-bottom: 0;
+  }
 
   .Post__Header {
     align-items: center;

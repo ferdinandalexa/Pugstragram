@@ -18,6 +18,10 @@
     position: sticky;
     top: 0;
   }
+
+  .Sidebar__Header{
+    padding-top: .5em;
+  }
   
   .Sidebar__Content {
     margin-top: .5em;
