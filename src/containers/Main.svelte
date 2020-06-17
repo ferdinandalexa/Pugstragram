@@ -10,6 +10,9 @@
     grid-template-columns: 3fr 1fr;
     margin: 0 auto;
     max-width: 800px;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    position: relative;
   }
 </style>
 

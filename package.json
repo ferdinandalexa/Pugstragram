@@ -11,10 +11,12 @@
   "author": "Fernando Alejandro Yerena Ramos",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.10.2",
     "svelte": "3.23.2"
   },
   "devDependencies": {
     "@babel/core": "7.10.2",
+    "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/polyfill": "7.10.1",
     "@babel/preset-env": "7.10.2",
     "babel-loader": "8.1.0",
