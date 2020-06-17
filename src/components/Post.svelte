@@ -31,6 +31,8 @@
 
   .Post__Image {
     width: 100%;
+    max-height: 600px;
+    object-fit: cover;
   }
 
   .Post__Actions {
