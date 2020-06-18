@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.10.2",
+    "autosize": "4.0.2",
     "svelte": "3.23.2"
   },
   "devDependencies": {

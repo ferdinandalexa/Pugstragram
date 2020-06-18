@@ -1,10 +1,19 @@
 <script>
+  import { onMount } from "svelte";
+
+  import autosize from "autosize";
+
   import Profile from "./Profile.svelte";
   import Comments from "./Comments.svelte";
 
   export let post = "";
   export let src = "";
   export let active = "";
+
+  let textarea;
+  onMount(() => {
+    autosize(textarea);
+  });
 </script>
 
 <style>
@@ -13,13 +22,20 @@
     margin: 1.5em 0;
     width: 100%;
   }
-  
+
   .Post:first-child {
     margin-top: 0;
   }
-  
+
   .Post:last-child {
     margin-bottom: 0;
+  }
+
+  .Post__Icon {
+    color: gray;
+    cursor: pointer;
+    padding-right: 0.25em;
+    padding-left: 0.25em;
   }
 
   .Post__Header {
@@ -42,11 +58,24 @@
     padding: 0.5em 1em;
   }
 
-  .Post__Icon {
+  .Post__Footer{
+    padding: 0.5em 1em;
+  }
+
+  .Add-Comment {
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    display: block;
+    font-family: inherit;
+    height: 1em;
+    margin: auto;
+    padding: 7px 10px;
+    width: 90%;
+    resize: none;
+  }
+
+  .Add-Comment::placeholder {
     color: gray;
-    cursor: pointer;
-    padding-right: 0.25em;
-    padding-left: 0.25em;
   }
 </style>
 
@@ -71,5 +100,12 @@
   </div>
   <div class="Post__Footer">
     <Comments />
+    <form on:submit|preventDefault>
+      <textarea
+        bind:this={textarea}
+        class="Add-Comment"
+        rows="0"
+        placeholder="Escribe un lindo comentario" />
+    </form>
   </div>
 </article>
