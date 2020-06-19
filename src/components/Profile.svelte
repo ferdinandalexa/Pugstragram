@@ -40,7 +40,6 @@
   </div>
   <div class="Profile__Info">
     <slot>
-      <p>No hay info</p>
     </slot>
   </div>
 </div>
