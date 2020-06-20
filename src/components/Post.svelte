@@ -1,12 +1,25 @@
 <script>
   import { getContext } from "svelte";
 
+  import likesCount from "../stores/likes";
+
   import Profile from "./Profile.svelte";
   import Comments from "./Comments.svelte";
 
   export let post = "";
   export let src = "";
   export let active = "";
+
+  let isLiked = false;
+  let isMarked = false;
+
+  const handleLike = () => {
+    isLiked = !isLiked;
+    if (!isLiked) likesCount.update(n => n - 1);
+    else likesCount.update(n => n + 1);
+  };
+
+  const handleMark = () => (isMarked = !isMarked);
 </script>
 
 <style>
@@ -29,6 +42,15 @@
     cursor: pointer;
     padding-right: 0.25em;
     padding-left: 0.25em;
+    transition: color 0.1s ease;
+  }
+
+  :global(.Post__Icon.isLiked) {
+    color: #fd5454;
+  }
+
+  :global(.Post__Icon.isMarked) {
+    color: #fdbb54;
   }
 
   .Post__Header {
@@ -64,14 +86,24 @@
     <i class="fas fa-ellipsis-h Post__Icon" />
   </div>
   <div class="Post__Body">
-    <img src={post} alt="Imagen de pug" class="Post__Image" />
+    <img
+      src={post}
+      alt="Imagen de pug"
+      class="Post__Image"
+      on:dblclick={handleLike} />
     <div class="Post__Actions">
       <span>
-        <i class="fas fa-heart Post__Icon" />
+        <i
+          class="fas fa-heart Post__Icon"
+          class:isLiked
+          on:click={handleLike} />
         <i class="fas fa-paper-plane Post__Icon" />
       </span>
       <span>
-        <i class="fas fa-bookmark Post__Icon" />
+        <i
+          class="fas fa-bookmark Post__Icon"
+          class:isMarked
+          on:click={handleMark} />
       </span>
     </div>
   </div>
