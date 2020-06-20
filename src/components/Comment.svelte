@@ -1,6 +1,7 @@
 <style>
     .Comment{
         margin-bottom: 1em;
+        word-break: break-word;
     }
 
     :global(.Comment__User){
