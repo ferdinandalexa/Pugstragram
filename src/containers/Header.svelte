@@ -1,3 +1,7 @@
+<script>
+  import likesCount from "../stores/likes";
+</script>
+
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
   .Header {
@@ -27,7 +31,7 @@
     position: relative;
   }
 
-.Header__Logo::before {
+  .Header__Logo::before {
     background-image: linear-gradient(to right, #f09433, #bc1888);
     content: "";
     height: 100%;
@@ -38,14 +42,18 @@
     width: 100%;
   }
 
-  .Header__Navigation > :global(i){
+  .Header__Navigation > :global(i) {
     color: lightgray;
-    padding: .5em;
-    transition: color .2s ease;
+    padding: 0.5em;
+    transition: color 0.2s ease;
+  }
+
+  .Header__Navigation > :global(i:hover) {
+    color: gray;
   }
   
-  .Header__Navigation > :global(i:hover){
-    color: gray;
+  .Header__likes-count{
+    margin-left: .25em;
   }
 </style>
 
@@ -54,8 +62,10 @@
     <header class="Header__Content">
       <h1 class="Header__Logo">Pugstagram</h1>
       <nav class="Header__Navigation">
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-user"></i>
+        <i class="fas fa-heart">
+          <span class="Header__likes-count">{$likesCount ? $likesCount : ''}</span>
+        </i>
+        <i class="fas fa-user" />
       </nav>
     </header>
   </header>
