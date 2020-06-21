@@ -3,6 +3,7 @@
 
   import likesCount from "../stores/likes";
 
+  import Modal from "../containers/Modal.svelte";
   import Profile from "./Profile.svelte";
   import Comments from "./Comments.svelte";
 
@@ -12,6 +13,7 @@
 
   let isLiked = false;
   let isMarked = false;
+  let showModal = false;
 
   const handleLike = () => {
     isLiked = !isLiked;
@@ -20,6 +22,7 @@
   };
 
   const handleMark = () => (isMarked = !isMarked);
+  const handleModal = () => (showModal = !showModal);
 </script>
 
 <style>
@@ -78,6 +81,7 @@
   }
 </style>
 
+<Modal bind:show={showModal} />
 <article class="Post">
   <div class="Post__Header">
     <Profile {src} size="32px" {active}>
@@ -97,7 +101,7 @@
           class="fas fa-heart Post__Icon"
           class:isLiked
           on:click={handleLike} />
-        <i class="fas fa-paper-plane Post__Icon" />
+        <i class="fas fa-paper-plane Post__Icon" on:click={handleModal} />
       </span>
       <span>
         <i
